@@ -12,7 +12,8 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
+    publicPath: '/static/'
   },
 
   devtool: develop ? 'cheap-module-source-map' : false,
@@ -29,12 +30,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['es2015']
-            }
-          }
+          'babel-loader'
         ]
       },
       {
